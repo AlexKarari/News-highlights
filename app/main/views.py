@@ -16,7 +16,7 @@ def index():
     return render_template('index.html', title = title, news_sources = news_sources)
 
 
-@main.route('/News_articles/<source_id>')
+@main.route('/articles/<source_id>')
 def source(source_id):
     '''
     View for top story articles
