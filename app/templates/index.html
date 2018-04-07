@@ -6,16 +6,7 @@
 <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}"> 
 {% endblock %} {% endblock%}
 
-<!DOCTYPE html>
-<html>
 
-<head>
-    <meta charset="utf-8"> {% if title %}
-    <title> {{ title }}</title>
-    {% else %}
-    <title> Welcome to the most unbiased News source page</title>
-    {% endif %}
-</head>
 
 <!-- Content block -->
 {% block content %}
@@ -27,16 +18,13 @@
     </form>
 
 </div>
-
-<body>
-    <!-- News Sources -->
-    <h1 style="text-align: center; color:red; font-weight:bold"> NEWS SOURCES</h3>
+<div class="container" style="text-align:center">
+        <!-- News Sources -->
+        <h1 style="color:red; font-weight:bold"> NEWS SOURCES</h3>
+</div>
     <ul>
         {{ displayNewsSourcesList(news_sources)}}
     </ul>
-    
-    
 
-</body>
+{% endblock %}
 
-</html>
