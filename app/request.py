@@ -43,9 +43,9 @@ def process_results(source_list):
         author = source_item.get('author')
         description = source_item.get('description')
         url = source_item.get('url')
-        publishedAt = source_item.get('publishedAt')
+        
 
-        source_object = News_sources(source_id, source_name, author, description, url, publishedAt)
+        source_object = News_sources(source_id, source_name, author, description, url)
         News_sources_results.append(source_object)
 
     return News_sources_results
