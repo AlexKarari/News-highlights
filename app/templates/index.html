@@ -16,29 +16,19 @@
 
 <div class="container">
     <form>
-        <input type="text" name="movie_query" placeholder="Search for a Movie" class="form-control">
+        <input type="text" name="news_query" placeholder="Search for News" class="form-control">
         <input type="submit" value="Submit" class="btn btn-default">
     </form>
 
 </div>
 
 <body>
-    <!-- Popular movie section  -->
-    <h3> Popular Movies</h3>
+    <!-- News Sources -->
+    <h1 style="text-align: center; color:red; font-weight:bold"> NEWS SOURCES</h3>
     <ul>
-        {{ macro.displayMovieList(popular)}}
+        {{ macro.displayNewsSourcesList(sources)}}
     </ul>
-    <!-- Upcoming movie  -->
-    <h3> Upcoming Movies </h3>
-    <ul>
-        {{ macro.displayMovieList(upcoming)}}
-    </ul>
-    <!-- Now showing movie -->
-    <h3>Now Showing</h3>
-    <ul>
-        {{ macro.displayMovieList(now_showing)}}
-    </ul>
-
+    
     <!-- Styles block -->
 
     {% block styles%} {{ super() }}
