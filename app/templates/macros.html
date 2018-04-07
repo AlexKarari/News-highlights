@@ -1,18 +1,27 @@
-{% macro displayMovieList(movie_list) %} {% for movie in movie_list %}
-<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
-    <img src="{{ movie.image }}" alt="{{ movie.title }} poster" class="img-responsive">
-    <li class="text-center">
-        <a href="/movie/{{movie.id}}">
-            {{ movie.title|truncate(10)}}</a>
-    </li>
+{% macro displayNewsSourcesList(news_sources) %} {% for source in news_sources %}
+<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 source-card">
+    <a href="/articles/{{source.source_id}}">
+        <h3 style="font-weight:bold">{{ source.name}}</h3>
+    </a>
+    <br>
+    <div class="well" style="height:200px">
+        <p style="font-weight:bold">{{ source.description|truncate(200)}}</p>
 </div>
 
 {% endfor %} {% endmacro %}
 
-<!-- Displaying reviews macro -->
-{% macro displayReviews(review_list) %} {% for review in review_list %}
-<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 review-card">
-    <h2> {{ review.title}} </h2>
-    <p> {{ review.review | truncate(30) }}</p>
+<!-- Displaying articles macro -->
+{% macro displayNewsArticles(source_and_articles) %} {% for article in source_and_articles %}
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 article-card">
+    <div class="well" style="height:200px">
+        <img src="{{article.urlToImage}}" alt="IMAGE NOT FOUND" style="width:150px;height:150px; float:left">
+        <h3 style="margin-top:-10px">{{article.title}}</h3>
+        <p style="font-weight:bold;margin-left:50px">{{ article.description|truncate(100)}}</p>
+        <a href="{{article.url}}">
+            <p>Read more...</p>
+        </a>
+        <br>
+        <footer style="font-weight:bolder">Published: {{article.publishedAt}}</footer>
+    </div>
 </div>
 {% endfor %} {% endmacro %}
