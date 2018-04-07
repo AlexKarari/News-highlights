@@ -19,8 +19,8 @@ def get_News_sources(source):
 
         News_sources_results = None
 
-        if get_sources_response['News_sources']:
-            sources_results_list = get_sources_response['News_sources']
+        if get_sources_response['sources']:
+            sources_results_list = get_sources_response['sources']
             News_sources_results = process_results(sources_results_list)
 
     return News_sources_results
@@ -59,8 +59,8 @@ def get_News_articles(source):
 
         News_articles_results = None
         
-        if News_articles_details_response['News_articles']:
-            News_articles_results_list = News_articles_details_response['News_articles']
+        if News_articles_details_response['articles']:
+            News_articles_results_list = News_articles_details_response['articles']
             News_articles_results = process_results(News_articles_results_list)
     
     return News_articles_results
@@ -90,21 +90,6 @@ def process_News_articles_results(News_articles_list):
     
     return News_articles_results
     
-
-# def search_movie(movie_name):
-#     search_movie_url = 'https://api.themoviedb.org/3/search/movie?api_key={}&query={}'.format(
-#         api_key, movie_name)
-#     with urllib.request.urlopen(search_movie_url) as url:
-#         search_movie_data = url.read()
-#         search_movie_response = json.loads(search_movie_data)
-
-#         search_movie_results = None
-
-#         if search_movie_response['results']:
-#             search_movie_list = search_movie_response['results']
-#             search_movie_results = process_results(search_movie_list)
-
-#     return search_movie_results
 
 
 def configure_request(app):

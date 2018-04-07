@@ -9,7 +9,7 @@ def index():
     View root page function that returns index page and the various news sources 
     '''
 
-    title = 'Home- Welcome to the most unbiased News source page'
+    title = 'Welcome to the most unbiased News source page'
 
     # Getting news sources
     news_sources = get_News_sources('sources')
