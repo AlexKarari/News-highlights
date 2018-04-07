@@ -7,11 +7,11 @@ api_key = None
 base_url = None
 
 
-def get_News_sources(sources):
+def get_News_sources(source):
     '''
     Function that gets the json response to our url request
     '''
-    get_sources_url = base_url.format(sources, api_key)
+    get_sources_url = base_url.format(source, api_key)
 
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()
@@ -19,8 +19,8 @@ def get_News_sources(sources):
 
         News_sources_results = None
 
-        if get_sources_response['results']:
-            sources_results_list = get_sources_response['results']
+        if get_sources_response['News_sources']:
+            sources_results_list = get_sources_response['News_sources']
             News_sources_results = process_results(sources_results_list)
 
     return News_sources_results
@@ -49,3 +49,63 @@ def process_results(source_list):
 
     return News_sources_results
 
+def get_News_articles(source):
+    get_News_articles_details_url = base_url.format(source, api_key)
+
+    with urllib.request.urlopen(get_News_articles_details_url) as url:
+        News_articles_details_data = url.read()
+        News_articles_details_response = json.loads(News_articles_details_data)
+
+        News_articles_results = None
+        
+        if News_articles_details_response['News_articles']:
+            News_articles_results_list = News_articles_details_response['News_articles']
+            News_articles_results = process_results(News_articles_results_list)
+    
+    return News_articles_results
+
+
+def process_News_articles_results(News_articles_list):
+    '''
+    Function that process the News_articles_list and transforms them into a list of objects
+    '''
+    '''
+    Args: News_articles_results_list: A list of dictionaries that contains news articles and links
+    '''
+
+    News_articles_results = []
+    for article_item in News_articles_list:
+        source_id = article_item.get('id')
+        author = article_item.get('author')
+        title = article_item.get('title')
+        description = article_item.get('description')
+        urlToImage = article_item.get('urlToImage')
+        url = article_item.get('url')
+        publishedAt = article_item.get('publishedAt')
+
+        article_object = News_articles(source_id, author, title, description, urlToImage, url, publishedAt)
+        News_articles_results.append(article_object)
+    
+    return News_articles_results
+    
+
+# def search_movie(movie_name):
+#     search_movie_url = 'https://api.themoviedb.org/3/search/movie?api_key={}&query={}'.format(
+#         api_key, movie_name)
+#     with urllib.request.urlopen(search_movie_url) as url:
+#         search_movie_data = url.read()
+#         search_movie_response = json.loads(search_movie_data)
+
+#         search_movie_results = None
+
+#         if search_movie_response['results']:
+#             search_movie_list = search_movie_response['results']
+#             search_movie_results = process_results(search_movie_list)
+
+#     return search_movie_results
+
+
+def configure_request(app):
+    global api_key, base_url
+    api_key = app.config['NEWS_API_KEY']
+    base_url = app.config['NEWS_API_BASE_URL']

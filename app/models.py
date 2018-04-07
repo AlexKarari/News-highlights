@@ -3,12 +3,12 @@ class News_sources:
     News_sources class to define News_sources Objects
     '''
 
-    def __init__(self, source_id, author, description, url, urlToImage, publishedAt):
+    def __init__(self, source_id, author, description, url, urlToImage):
         self.source_id = source_id
         self.author = author
         self.description = description
         self.url = "https//:www.barrons.com/articles/spotifys-no-lightweight-1523067549" + url
-        self.publishedAt = publishedAt
+        
         
 
 class News_articles:
@@ -16,8 +16,8 @@ class News_articles:
     News_articles class to define News_articles Objects
     '''
 
-    def __init__(self, source, author, title, description, urlToImage, url, publishedAt):
-        self.source = source
+    def __init__(self, source_id, author, title, description, urlToImage, url, publishedAt):
+        self.source_id = source_id
         self.author = author
         self.title = title
         self.description = description
