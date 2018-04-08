@@ -1,4 +1,4 @@
-{% macro displayNewsSourcesList(news_sources) %} {% for source in news_sources %}
+{% macro displaySourcesList(news_sources) %} {% for source in news_sources %}
 <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 source-card">
     <a href="/articles/{{source.source_id}}">
         <h3 style="font-weight:bold">{{ source.name}}</h3>
@@ -11,7 +11,7 @@
 {% endfor %} {% endmacro %}
 
 <!-- Displaying articles macro -->
-{% macro displayNewsArticles(source_and_articles) %} {% for article in source_and_articles %}
+{% macro displayNewsarticles(source_and_articles) %} {% for article in source_and_articles %}
 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 article-card">
     <div class="well" style="height:200px">
         <img src="{{article.urlToImage}}" alt="IMAGE NOT FOUND" style="width:150px;height:150px; float:left">

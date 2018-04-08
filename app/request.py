@@ -3,7 +3,7 @@ from .models import News_sources, News_articles
 
 # Getting api key
 api_key = None
-# Getting the movie base url
+# Getting the news base url
 base_url = None
 
 
@@ -11,7 +11,7 @@ def get_News_sources(source):
     '''
     Function that gets the json response to our url request
     '''
-    get_sources_url = base_url.format(source, api_key)
+    get_sources_url = 'https://newsapi.org/v1/sources'.format(source, api_key)
 
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()

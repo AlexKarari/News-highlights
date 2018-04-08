@@ -23,7 +23,7 @@ class News_articles:
         self.author = author
         self.title = title
         self.description = description
-        self.urlToImage = "https://bloximages.chicago2.vip.townnews.com/host.madison.com/content/tncms/assets/v3/editorial/6/33/6339d38d-7b84-5eff-aeb3-8782281f7085/5ac81513bfd12.image.jpg?crop=1662%2C935%2C0%2C155&resize=1120%2C630&order=crop%2Cresize" + urlToImage
+        self.urlToImage = urlToImage
         self.url = url
         self.publishedAt = publishedAt
 
