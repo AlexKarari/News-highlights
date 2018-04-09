@@ -1,6 +1,9 @@
-{% macro displaySourcesList(news_sources) %} {% for source in news_sources %}
+{% macro displaySourcesList(news_sources) %} 
+
 <div class="container-fluid">
+ {% for source in news_sources | batch(3) %}
     <div class="row justify-content-between">
+        {% for source in source %}
         <div class="well col-md-4">
             <!-- <a href="{{source.url}}"></a><h3 style="font-weight:bold">{{source.name}}</h3></a>
             <br> -->
@@ -10,10 +13,13 @@
                 <p class="text-justify" style="font-weight:bold">{{ source.description|truncate(150)}}</p>
             </div>
         </div>
+        {% endfor %}
     </div>
+ {% endfor %}
 </div>
 
-{% endfor %} {% endmacro %}
+
+{% endmacro %}
 
 <!-- Displaying articles macro -->
 {% macro displayNewsarticles(source_and_articles) %} {% for article in source_and_articles %}
