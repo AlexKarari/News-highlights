@@ -4,7 +4,7 @@
  {% for source in news_sources | batch(3) %}
     <div class="row justify-content-between">
         {% for source in source %}
-        <div class="well col-md-4">
+        <div class="well well-sm col-md-4" styles="padding-left:50px;padding-right:50px">
             <!-- <a href="{{source.url}}"></a><h3 style="font-weight:bold">{{source.name}}</h3></a>
             <br> -->
             <div>
@@ -23,9 +23,9 @@
 
 <!-- Displaying articles macro -->
 {% macro displayNewsarticles(source_and_articles) %} {% for article in source_and_articles %}
-<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 article-card">
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
     <div class="well" style="height:400">
-        <img src="{{article.urlToImage}}" alt="IMAGE NOT FOUND" style="width:150px;height:150px; float:left">
+<img src="{{article.urlToImage}}" alt="IMAGE NOT FOUND" style="width:150px;height:150px; float:left">
         <h3 style="margin-top:-10px">{{article.title}}</h3>
         <p style="font-weight:bold;margin-left:50px">{{article.description|truncate(100)}}</p>
         <a href="{{article.url}}">

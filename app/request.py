@@ -26,12 +26,12 @@ def get_News_sources(category):
 
         if get_sources_response['sources']:
             sources_results_list = get_sources_response['sources']
-            News_sources_results = process_results(sources_results_list)
+            News_sources_results = process_sources(sources_results_list)
 
     return News_sources_results
     
 
-def process_results(source_list):
+def process_sources(source_list):
     '''
     Function  that processes the News_sources_results and transform them to a list of Objects
 
@@ -57,7 +57,7 @@ def process_results(source_list):
 
 def get_News_articles(source):
     get_News_articles_details_url = base_url.format(
-        "everything", api_key) + "&sources=" + source
+        "everything", api_key) + "&sources=" + source 
     print(get_News_articles_details_url)
     with urllib.request.urlopen(get_News_articles_details_url) as url:
         News_articles_details_data = url.read()
@@ -67,12 +67,12 @@ def get_News_articles(source):
         
         if News_articles_details_response['articles']:
             News_articles_results_list = News_articles_details_response['articles']
-            News_articles_results = process_results(News_articles_results_list)
+            News_articles_results = process_articles(News_articles_results_list)
     
     return News_articles_results
 
 
-def process_News_articles_results(News_articles_list):
+def process_articles(News_articles_list):
     '''
     Function that process the News_articles_list and transforms them into a list of objects
     '''

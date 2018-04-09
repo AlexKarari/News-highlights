@@ -22,4 +22,6 @@ def source(source_id):
     View for top story articles
     '''
     source_and_articles = get_News_articles(source_id)
+    # for source in source_and_articles:
+    #     print(source.urlToImage)
     return render_template('articles.html', source_and_articles = source_and_articles)
