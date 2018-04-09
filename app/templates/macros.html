@@ -21,12 +21,12 @@
     <div class="well" style="height:400">
         <img src="{{article.urlToImage}}" alt="IMAGE NOT FOUND" style="width:150px;height:150px; float:left">
         <h3 style="margin-top:-10px">{{article.title}}</h3>
-        <p style="font-weight:bold;margin-left:50px">{{ article.description|truncate(100)}}</p>
+        <p style="font-weight:bold;margin-left:50px">{{article.description|truncate(100)}}</p>
         <a href="{{article.url}}">
             <p>Read more...</p>
         </a>
         <br>
-        <footer style="font-weight:bolder">Published: {{article.publishedAt}}</footer>
+        <footer style="font-weight:bolder">Published:{{article.publishedAt}}</footer>
     </div>
 </div>
 {% endfor %} {% endmacro %}
